@@ -7,25 +7,112 @@
 		<style type="text/css">
 			/* int类型输入框样式 */
 			.inputint{
-				color:blue;
+				color: #FFFFFF;;
 				width: 20px;
 				padding: 15px;
 				padding-left: 15px;
 				font-size: 15px;
+				font-weight: 50px;
 			}
 			/* float类型输入框样式 */
 			.inputfloat{
-				color:red;
+				color:#FFFFFF;
 				width: 40px;
 				padding: 15px;
 				padding-left: 5px;
 				padding-right: 5px;
 				font-size: 15px;
+				font-weight: 50px;
 			}
-			input {margin-right: 10px; }
+			input[name="text_input"] {
+				margin-right: 10px; 
+
+				border-style: outset;
+				border-color: #FFFFFF;
+				background: transparent;
+				}
+			textarea{
+				color: #FFFFFF;
+				background: #000000;
+				background:transparent;
+				border-style: none;
+			}
+			.button{
+				width: 100px;
+				height: 50px;
+				font-size: 15px;
+				color: #FFFFFF;
+				background: transparent;
+				border-color: #FFFFFF;
+				border-radius: 15px;
+  				box-shadow: 0 9px #999;
+			}
+			.button:active{
+				background: transparent;
+				box-shadow: 0 5px #666;
+				transform: translateY(4px);
+			}
 			.labelbed{
 				margin-right: 11px;
 			}
+			body
+	        {
+	            margin: 0;
+	            padding: 0;
+	
+	           	display: flex;
+	            justify-content:center;       
+	            align-items:center;
+	            min-height:100vh;
+	            background: #060c21;
+	            font-family: 'Poppins', sans-serif;
+	        }
+	        .box{
+	
+	            position: relative;
+	            width: 100%;
+	            height: 100%;
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	            background: #060c21;
+	        }
+	        /*一个溢出的盒子作为边框，添加背景后形成光源效果*/
+	        .box::before {
+	                     content: '';
+	                     position: absolute;
+	                     top:-2px;
+	                     left: -2px;
+	                     right: -2px;
+	                     bottom: -2px;
+	                     background: #FFFFFF;
+	                     z-index: -1;/*元素堆叠顺序*/
+	            
+	        }
+	        /*另一个溢出的盒子，模糊形成光晕效果*/
+	        .box::after {
+	            content: '';
+	            position: absolute;
+	            top: -2px;
+	            left: -2px;
+	            right: -2px;
+	            bottom: -2px;
+	            background: #FFFFFF;
+	            z-index: -2;
+	            /*添加模糊滤镜*/
+	            filter: blur(40px);
+	        }
+	        .box::before,
+	        .box::after{
+	            /*三色渐变，中间为背景色，融入背景*/
+	            background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
+	        }
+	        .content {
+	            padding: 13px;
+	            box-sizing: border-box;
+	            color: #fff;
+	        }
+	        
 		</style>
 		<script>
 			
@@ -89,89 +176,91 @@
 		</script>
 	</head>
 	<body>
-		<div class="container" id="index" style="width:auto;height:auto;text-align: center;">
-			<div id="date">
-				<form >
-					<label for="txet-input" ">本月天数:</label>
-					<input class="inputint" id="date_month" maxlength="2" name="text_input" style="font-weight: 50px;">
-					<label for="txet-input">水费:</label>
-					<input class="inputfloat" id="water" name="text_input" style="font-weight: 50px;">
-					<label for="txet-input">电费:</label>
-					<input class="inputfloat" id="electric" name="text_input" style="font-weight: 50px;">
-				</form>
-			</div>
-			<br />
-			<br />
-			<div id="people">
-				<form action="/" method="post">
-					<label class="labelbed" for="txet-input">1床：</label>
-					<!--<label for="txet-input">4人</label>-->
-					<input class="inputfloat" id="four_four" name="text_input" style="font-weight: 50px;" placeholder="4人">
-					<!--<label for="txet-input">3人</label>-->
-					<input class="inputfloat" id="four_three" name="text_input" style="font-weight: 50px;"placeholder="3人">
-					<!--<label for="txet-input">2人</label>-->
-					<input class="inputfloat" id="four_two" name="text_input" style="font-weight: 50px;"placeholder="2人">
-					<!--<label for="txet-input">1人</label>-->
-					<input class="inputfloat" id="four_one" name="text_input" style="font-weight: 50px;"placeholder="1人">
-				</form>
-			</div>
-			<br />
-			<br />
-			<div id="people">
-				<form action="/" method="post">
-					<label class="labelbed" for="txet-input">2床：</label>
-					<!--<label for="txet-input">4人</label>-->
-					<input class="inputfloat" id="three_four" name="text_input" style="font-weight: 50px;"placeholder="4人">
-					<!--<label for="txet-input">3人</label>-->
-					<input class="inputfloat" id="three_three" name="text_input" style="font-weight: 50px;"placeholder="3人">
-					<!--<label for="txet-input">2人</label>-->
-					<input class="inputfloat" id="three_two" name="text_input" style="font-weight: 50px;"placeholder="2人">
-					<!--<label for="txet-input">1人</label>-->
-					<input class="inputfloat" id="three_one" name="text_input" style="font-weight: 50px;"placeholder="1人">
-				</form>
-			</div>
-			<br />
-			<br />
-			<div id="people">
-				<form action="/" method="post">
-					<label class="labelbed" for="txet-input">3床：</label>
-					<!--<label for="txet-input">4人</label>-->
-					<input class="inputfloat" id="two_four" name="text_input" style="font-weight: 50px;"placeholder="4人">
-					<!--<label for="txet-input">3人</label>-->
-					<input class="inputfloat" id="two_three" name="text_input" style="font-weight: 50px;"placeholder="3人">
-					<!--<label for="txet-input">2人</label>-->
-					<input class="inputfloat" id="two_two" name="text_input" style="font-weight: 50px;"placeholder="2人">
-					<!--<label for="txet-input">1人</label>-->
-					<input class="inputfloat" id="two_one" name="text_input" style="font-weight: 50px;"placeholder="1人">
-				</form>
-			</div>
-			<br />
-			<br />
-			<div id="people">
-				<form action="/" method="post">
-					<label class="labelbed" for="txet-input">4床：</label>
-					<!--<label for="txet-input">4人</label>-->
-					<input class="inputfloat" id="one_four" name="text_input" style="font-weight: 50px;"placeholder="4人">
-					<!--<label for="txet-input">3人</label>-->
-					<input class="inputfloat" id="one_three" name="text_input" style="font-weight: 50px;"placeholder="3人">
-					<!--<label for="txet-input">2人</label>-->
-					<input class="inputfloat" id="one_two" name="text_input" style="font-weight: 50px;"placeholder="2人">
-					<!--<label for="txet-input">1人</label>-->
-					<input class="inputfloat" id="one_one" name="text_input" style="font-weight: 50px;"placeholder="1人">
-				</form>
-			</div>
-			<br />
-			<br />
-			<div id="button" style="text-align: center;">
-				<button onclick="how()" style="width: 100px;height: 50px;font-size: 15px;">使用说明</button>
-				<input type="button" value="计算" style="width: 100px;height: 50px;font-size: 15px;" onclick="button1();">
-			</div>
-			<br />
-			<!-- 数据反显 -->
-			<div id="area">
-				<form>
-					<textarea id="cost_area" rows="8" cols="55" readonly style="resize: none;"></textarea>
-				</form>
+		<div class="box" id="index" style="width:auto;height:auto;text-align: center;">
+			<div class="content">
+				<div id="date">
+					<form >
+						<label for="txet-input" ">本月天数:</label>
+						<input class="inputint" id="date_month" maxlength="2" name="text_input">
+						<label for="txet-input">水费:</label>
+						<input class="inputfloat" id="water" name="text_input">
+						<label for="txet-input">电费:</label>
+						<input class="inputfloat" id="electric" name="text_input">
+					</form>
+				</div>
+				<br />
+				<br />
+				<div id="people">
+					<form action="/" method="post">
+						<label class="labelbed" for="txet-input">1床：</label>
+						<!--<label for="txet-input">4人</label>-->
+						<input class="inputfloat" id="four_four" name="text_input" placeholder="4人">
+						<!--<label for="txet-input">3人</label>-->
+						<input class="inputfloat" id="four_three" name="text_input" placeholder="3人">
+						<!--<label for="txet-input">2人</label>-->
+						<input class="inputfloat" id="four_two" name="text_input" placeholder="2人">
+						<!--<label for="txet-input">1人</label>-->
+						<input class="inputfloat" id="four_one" name="text_input" placeholder="1人">
+					</form>
+				</div>
+				<br />
+				<br />
+				<div id="people">
+					<form action="/" method="post">
+						<label class="labelbed" for="txet-input">2床：</label>
+						<!--<label for="txet-input">4人</label>-->
+						<input class="inputfloat" id="three_four" name="text_input" placeholder="4人">
+						<!--<label for="txet-input">3人</label>-->
+						<input class="inputfloat" id="three_three" name="text_input" placeholder="3人">
+						<!--<label for="txet-input">2人</label>-->
+						<input class="inputfloat" id="three_two" name="text_input" placeholder="2人">
+						<!--<label for="txet-input">1人</label>-->
+						<input class="inputfloat" id="three_one" name="text_input" placeholder="1人">
+					</form>
+				</div>
+				<br />
+				<br />
+				<div id="people">
+					<form action="/" method="post">
+						<label class="labelbed" for="txet-input">3床：</label>
+						<!--<label for="txet-input">4人</label>-->
+						<input class="inputfloat" id="two_four" name="text_input" placeholder="4人">
+						<!--<label for="txet-input">3人</label>-->
+						<input class="inputfloat" id="two_three" name="text_input" placeholder="3人">
+						<!--<label for="txet-input">2人</label>-->
+						<input class="inputfloat" id="two_two" name="text_input" placeholder="2人">
+						<!--<label for="txet-input">1人</label>-->
+						<input class="inputfloat" id="two_one" name="text_input" placeholder="1人">
+					</form>
+				</div>
+				<br />
+				<br />
+				<div id="people">
+					<form action="/" method="post">
+						<label class="labelbed" for="txet-input">4床：</label>
+						<!--<label for="txet-input">4人</label>-->
+						<input class="inputfloat" id="one_four" name="text_input" placeholder="4人">
+						<!--<label for="txet-input">3人</label>-->
+						<input class="inputfloat" id="one_three" name="text_input" placeholder="3人">
+						<!--<label for="txet-input">2人</label>-->
+						<input class="inputfloat" id="one_two" name="text_input" placeholder="2人">
+						<!--<label for="txet-input">1人</label>-->
+						<input class="inputfloat" id="one_one" name="text_input" placeholder="1人">
+					</form>
+				</div>
+				<br />
+				<br />
+				<div id="button" style="text-align: center;">
+					<button class="button" id="help" onclick="how()">使用说明</button>
+					<input class="button" type="button" value="计算" onclick="button1();">
+				</div>
+				<br />
+				<!-- 数据反显 -->
+				<div id="area">
+					<form>
+						<textarea id="cost_area" rows="8" cols="45" readonly style="resize: none;"></textarea>
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>
