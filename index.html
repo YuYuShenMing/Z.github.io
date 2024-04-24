@@ -83,6 +83,9 @@
 						"1床钱数：" + one + "\n"
 						;
 			}
+			function how(){
+				alert("1.输入天数、费用等信息后，点击计算，下方空白区域显示结果\n2.床铺后人数表示\n（例：1床本月4个人在的时候有8天，则4人输入框填写8）")
+			}
 		</script>
 	</head>
 	<body>
@@ -160,13 +163,14 @@
 			<br />
 			<br />
 			<div id="button" style="text-align: center;">
+				<button onclick="how()" style="width: 100px;height: 50px;font-size: 15px;">使用说明</button>
 				<input type="button" value="计算" style="width: 100px;height: 50px;font-size: 15px;" onclick="button1();">
 			</div>
 			<br />
 			<!-- 数据反显 -->
 			<div id="area">
 				<form>
-					<textarea id="cost_area" rows="6" cols="55" readonly style="resize: none;"></textarea>
+					<textarea id="cost_area" rows="8" cols="55" readonly style="resize: none;"></textarea>
 				</form>
 			</div>
 		</div>
