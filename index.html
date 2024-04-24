@@ -36,6 +36,11 @@
 				background: #000000;
 				background:transparent;
 				border-style: none;
+				margin-right:5px ;
+				margin-left: 5px;
+			}
+			#label1{
+				margin-left: 10px;
 			}
 			.button{
 				width: 100px;
@@ -108,7 +113,8 @@
 	            background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
 	        }
 	        .content {
-	            padding: 0px;
+	        	
+
 	            box-sizing: border-box;
 	            color: #fff;
 	        }
@@ -181,7 +187,8 @@
 				<div id="date">
 					<form >
 						<br />
-						<label for="txet-input" ">天数:</label>
+						<br />
+						<label for="txet-input" id="label1">天数:</label>
 						<input class="inputint" id="date_month" maxlength="2" name="text_input">
 						<label for="txet-input">水费:</label>
 						<input class="inputfloat" id="water" name="text_input">
@@ -193,7 +200,7 @@
 				<br />
 				<div id="people">
 					<form action="/" method="post">
-						<label class="labelbed" for="txet-input">1床：</label>
+						<label class="labelbed" for="txet-input"id="label1">1床：</label>
 						<!--<label for="txet-input">4人</label>-->
 						<input class="inputfloat" id="four_four" name="text_input" placeholder="4人">
 						<!--<label for="txet-input">3人</label>-->
@@ -208,7 +215,7 @@
 				<br />
 				<div id="people">
 					<form action="/" method="post">
-						<label class="labelbed" for="txet-input">2床：</label>
+						<label class="labelbed" for="txet-input"id="label1">2床：</label>
 						<!--<label for="txet-input">4人</label>-->
 						<input class="inputfloat" id="three_four" name="text_input" placeholder="4人">
 						<!--<label for="txet-input">3人</label>-->
@@ -223,7 +230,7 @@
 				<br />
 				<div id="people">
 					<form action="/" method="post">
-						<label class="labelbed" for="txet-input">3床：</label>
+						<label class="labelbed" for="txet-input"id="label1">3床：</label>
 						<!--<label for="txet-input">4人</label>-->
 						<input class="inputfloat" id="two_four" name="text_input" placeholder="4人">
 						<!--<label for="txet-input">3人</label>-->
@@ -238,7 +245,7 @@
 				<br />
 				<div id="people">
 					<form action="/" method="post">
-						<label class="labelbed" for="txet-input">4床：</label>
+						<label class="labelbed" for="txet-input"id="label1">4床：</label>
 						<!--<label for="txet-input">4人</label>-->
 						<input class="inputfloat" id="one_four" name="text_input" placeholder="4人">
 						<!--<label for="txet-input">3人</label>-->
@@ -259,7 +266,7 @@
 				<!-- 数据反显 -->
 				<div id="area">
 					<form>
-						<textarea id="cost_area" rows="8" cols="42" readonly style="resize: none;"></textarea>
+						<textarea id="cost_area" rows="7" cols="42" readonly style="resize: none;"></textarea>
 					</form>
 				</div>
 			</div>
