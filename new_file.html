@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>水电费计算</title>
+		<style type="text/css">
+			/* int类型输入框样式 */
+			.inputint{
+				color:blue;
+				width: 20px;
+				padding: 15px;
+				padding-left: 15px;
+				font-size: 15px;
+			}
+			/* float类型输入框样式 */
+			.inputfloat{
+				color:blue;
+				width: 40px;
+				padding: 15px;
+				padding-left: 5px;
+				padding-right: 5px;
+				font-size: 15px;
+			}
+			input {margin-right: 20px; }
+			.labelbed{
+				margin-right: 11px;
+			}
+		</style>
+		<script>
+			
+			/* 计算按钮 */
+			function button1(){
+				var date_month = document.getElementById("date_month").value;
+				var water = document.getElementById("water").value;
+				var electric = document.getElementById("electric").value;
+				var money = parseFloat(water) + parseFloat(electric);
+				var money_date = money / date_month;
+				
+				/* 每天钱数 */
+				var four_money = parseFloat(money_date / 4);
+				var three_money = parseFloat(money_date / 3);
+				var two_money = parseFloat(money_date / 2);
+				var one_money = parseFloat(money_date);
+				
+				/* 获取床位文本框数据 */
+				var four_four = document.getElementById("four_four").value;
+				var four_three = document.getElementById("four_three").value;
+				var four_two = document.getElementById("four_two").value;
+				var four_one = document.getElementById("four_one").value;
+				
+				var three_four = document.getElementById("three_four").value;
+				var three_three = document.getElementById("three_three").value;
+				var three_two = document.getElementById("three_two").value;
+				var three_one = document.getElementById("three_one").value;
+				
+				var two_four = document.getElementById("two_four").value;
+				var two_three = document.getElementById("two_three").value;
+				var two_two = document.getElementById("two_two").value;
+				var two_one = document.getElementById("two_one").value;
+				
+				var one_four = document.getElementById("one_four").value;
+				var one_three = document.getElementById("one_three").value;
+				var one_two = document.getElementById("one_two").value;
+				var one_one = document.getElementById("one_one").value;
+				
+				/* 每床钱数 */
+				var four = ((four_four * four_money) + (four_three * three_money) + (four_two * two_money) + (four_one * one_money));
+				var three = ((three_four* four_money) + (three_three * three_money) + (three_two * two_money) + (three_one * one_money));
+				var two = ((two_four * four_money) + (two_three * three_money) + (two_two * two_money) + (two_one * one_money));
+				var one = ((one_four * four_money) + (one_three * three_money) + (one_two * two_money) + (one_one * one_money));
+				
+				
+				document.getElementById("cost_area").value="水费+电费=" + money + "\n" + 
+						/*"4床钱数:" + "(" + four_four + "x" + four_money.toFixed(2) + ")" + "+" + "(" + four_three + "x" + three_money.toFixed(2) + ")" + "+" + "(" + four_two + "x" + two_money.toFixed(2) + ")" + "+" + "(" + four_one + "x" + one_money.toFixed(2) + ")" + " = " + four + "\n" + 
+						"3床钱数:" + "(" + three_four + "x" + four_money.toFixed(2) + ")" + "+" + "(" + three_three + "x" + three_money.toFixed(2) + ")" + "+" + "(" + three_two + "x" + two_money.toFixed(2) + ")" + "+" + "(" + three_one + "x" + one_money.toFixed(2) + ")" + " = " + three + "\n" + 
+						"2床钱数:" + "(" + two_four + "x" + four_money.toFixed(2) + ")" + "+" + "(" + two_three + "x" + three_money.toFixed(2) + ")" + "+" + "(" + two_two + "x" + two_money.toFixed(2) + ")" + "+" + "(" + two_one + "x" + one_money.toFixed(2) + ")" + " = " + two + "\n" + 
+						"1床钱数:" + "(" + one_four + "x" + four_money.toFixed(2) + ")" + "+" + "(" + one_three + "x" + three_money.toFixed(2) + ")" + "+" + "(" + one_two + "x" + two_money.toFixed(2) + ")" + "+" + "(" + one_one + "x" + one_money.toFixed(2) + ")" + " = " + one + "\n" 
+						*/
+						"4床钱数：" + four + "\n" + 
+						"3床钱数：" + three + "\n" + 
+						"2床钱数：" + two + "\n" + 
+						"1床钱数：" + one + "\n"
+						;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container" id="index" style="width: auto;height: auto;text-align: center;">
+			<div id="date" style="text-align: center;">
+				<form >
+					<label for="txet-input" ">本月天数：</label>
+					<input class="inputint" id="date_month" maxlength="2" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">水费：</label>
+					<input class="inputfloat" id="water" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">电费：</label>
+					<input class="inputfloat" id="electric" name="text_input" style="font-weight: 50px;">
+				</form>
+			</div>
+			<br />
+			<br />
+			<div id="people">
+				<form action="/" method="post">
+					<label class="labelbed" for="txet-input">4床：</label>
+					<label for="txet-input">4人</label>
+					<input class="inputfloat" id="four_four" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">3人</label>
+					<input class="inputfloat" id="four_three" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">2人</label>
+					<input class="inputfloat" id="four_two" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">1人</label>
+					<input class="inputfloat" id="four_one" name="text_input" style="font-weight: 50px;">
+				</form>
+			</div>
+			<br />
+			<br />
+			<div id="people">
+				<form action="/" method="post">
+					<label class="labelbed" for="txet-input">3床：</label>
+					<label for="txet-input">4人</label>
+					<input class="inputfloat" id="three_four" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">3人</label>
+					<input class="inputfloat" id="three_three" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">2人</label>
+					<input class="inputfloat" id="three_two" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">1人</label>
+					<input class="inputfloat" id="three_one" name="text_input" style="font-weight: 50px;">
+				</form>
+			</div>
+			<br />
+			<br />
+			<div id="people">
+				<form action="/" method="post">
+					<label class="labelbed" for="txet-input">2床：</label>
+					<label for="txet-input">4人</label>
+					<input class="inputfloat" id="two_four" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">3人</label>
+					<input class="inputfloat" id="two_three" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">2人</label>
+					<input class="inputfloat" id="two_two" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">1人</label>
+					<input class="inputfloat" id="two_one" name="text_input" style="font-weight: 50px;">
+				</form>
+			</div>
+			<br />
+			<br />
+			<div id="people">
+				<form action="/" method="post">
+					<label class="labelbed" for="txet-input">1床：</label>
+					<label for="txet-input">4人</label>
+					<input class="inputfloat" id="one_four" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">3人</label>
+					<input class="inputfloat" id="one_three" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">2人</label>
+					<input class="inputfloat" id="one_two" name="text_input" style="font-weight: 50px;">
+					<label for="txet-input">1人</label>
+					<input class="inputfloat" id="one_one" name="text_input" style="font-weight: 50px;">
+				</form>
+			</div>
+			<br />
+			<br />
+			<div id="button" style="text-align: center;">
+				<input type="button" value="计算" style="width: 100px;height: 50px;font-size: 15px;" onclick="button1();">
+			</div>
+			<br />
+			<!-- 数据反显 -->
+			<div id="area">
+				<form>
+					<textarea id="cost_area" rows="6" cols="55" readonly style="resize: none;"></textarea>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
