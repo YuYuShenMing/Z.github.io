@@ -7,7 +7,7 @@
 		<style type="text/css">
 			/* int类型输入框样式 */
 			.inputint{
-				color: #FFFFFF;;
+				color: #B03060;;
 				width: 20px;
 				padding: 15px;
 				padding-left: 15px;
@@ -16,7 +16,7 @@
 			}
 			/* float类型输入框样式 */
 			.inputfloat{
-				color:#FFFFFF;
+				color:#B03060;
 				width: 40px;
 				padding: 15px;
 				padding-left: 5px;
@@ -26,18 +26,40 @@
 			}
 			input[name="text_input"] {
 				margin-right: 10px; 
-
+				font-size: 17px;
 				border-style: outset;
-				border-color: #FFFFFF;
+				border-color: #EEB4B4;
 				background: transparent;
 				}
+			input::-webkit-input-placeholder{
+				color: #CD5C5C;
+			}
+			label{
+				color: #B03060;
+				font-weight: 600;
+			}
 			textarea{
-				color: #FFFFFF;
-				background: #000000;
-				background:transparent;
-				border-style: none;
+				position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: transparent; /* 文本区域的背景色设置为透明 */
+			    resize: none; /* 去掉文本区域的调整边框 */
+			    border: none; /* 去掉文本区域的边框 */
+			    outline: none; /* 去掉文本区域的轮廓线 */
 				margin-right:5px ;
 				margin-left: 5px;
+				color: #B03060;
+				
+			}
+			#area{
+				position: relative;
+				background-size: cover;
+				/*background:transparent;*/
+				filter: opacity(100%);
+				width: 350px;
+				height: 100px;
 			}
 			#label1{
 				margin-left: 10px;
@@ -46,16 +68,27 @@
 				width: 100px;
 				height: 50px;
 				font-size: 15px;
-				color: #FFFFFF;
+				font-weight: 900;
+				color: #B03060;
 				background: transparent;
 				border-color: #FFFFFF;
 				border-radius: 15px;
   				box-shadow: 0 9px #999;
+  				background-image: url("img/button_up.png");
+
 			}
+			/*#help{
+				background-image: url("img/button_bg_left.png");
+			}
+			#cost{
+				background-image: url("img/button_bg_right.png");
+			}*/
 			.button:active{
-				background: transparent;
+				background-image: url("img/button_down.png");
+				/*background: transparent;*/
 				box-shadow: 0 5px #666;
 				transform: translateY(4px);
+
 			}
 			.labelbed{
 				margin-right: 11px;
@@ -69,7 +102,8 @@
 	            justify-content:center;       
 	            align-items:center;
 	            min-height:100vh;
-	            background: #060c21;
+	            background: #FFB6C1;
+
 	            font-family: 'Poppins', sans-serif;
 	        }
 	        .box{
@@ -80,16 +114,18 @@
 	            display: flex;
 	            justify-content: center;
 	            align-items: center;
-	            background: #060c21;
+	            background: #FFB6C1;
+	            background-image: url("img/box_bg.png");
+	            background-size: cover;
 	        }
 	        /*一个溢出的盒子作为边框，添加背景后形成光源效果*/
 	        .box::before {
 	                     content: '';
 	                     position: absolute;
-	                     top:-2px;
-	                     left: -2px;
-	                     right: -2px;
-	                     bottom: -2px;
+	                     top:-3px;
+	                     left: -3px;
+	                     right: -3px;
+	                     bottom: -3px;
 	                     background: #FFFFFF;
 	                     z-index: -1;/*元素堆叠顺序*/
 	            
@@ -98,19 +134,19 @@
 	        .box::after {
 	            content: '';
 	            position: absolute;
-	            top: -2px;
-	            left: -2px;
-	            right: -2px;
-	            bottom: -2px;
+	            top: -3px;
+	            left: -3px;
+	            right: -3px;
+	            bottom: -3px;
 	            background: #FFFFFF;
-	            z-index: -2;
+	            z-index: -1;
 	            /*添加模糊滤镜*/
 	            filter: blur(40px);
 	        }
 	        .box::before,
 	        .box::after{
 	            /*三色渐变，中间为背景色，融入背景*/
-	            background: linear-gradient(235deg,#89ff00,#060c21,#00bcd4);
+	            background: linear-gradient(235deg,#FFA54F,#ffffff,#EE1289);
 	        }
 	        .content {
 	        	
@@ -260,14 +296,17 @@
 				<br />
 				<div id="button" style="text-align: center;">
 					<button class="button" id="help" onclick="how()">使用说明</button>
-					<input class="button" type="button" value="计算" onclick="button1();">
+					<input class="button" type="button" value="计算" id="cost" onclick="button1();">
 				</div>
 				<br />
 				<!-- 数据反显 -->
 				<div id="area">
 					<form>
-						<textarea id="cost_area" rows="7" cols="42" readonly style="resize: none;"></textarea>
+						<textarea id="cost_area"  readonly style="resize: none;"></textarea>
 					</form>
+				</div>
+				<div id="copyright">
+					<label style="font:italic bold 12px/30px Georgia,serif;">copyright &nbsp;&copy;2024&nbsp;&nbsp;&nbsp;Q&Z</label>
 				</div>
 			</div>
 		</div>
